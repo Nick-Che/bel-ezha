@@ -50,7 +50,8 @@ $routes->get('login','Login::index');
 $routes->post('login/auth','Login::auth');
 $routes->get('admin','Admin::view',['filter' => 'auth']);
 
-$routes->post('store','Admin::store');
+$routes->get('admin/add','Admin::add');
+$routes->post('admin/store','Admin::store');
 
 
 /*

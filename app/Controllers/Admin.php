@@ -6,28 +6,51 @@ use App\Models\WordModel;
 
 class Admin extends BaseController
 {
+    public function __construct()
+    {
+        $this->wordModel = new WordModel();
+    }
+
     public function view()
     {
-
-        $wordModel = new WordModel();
-        $data['words'] = $wordModel->orderBy('letter', 'ASC')->findAll();
+        $data['words'] = $this->wordModel->orderBy('letter', 'ASC')->findAll();
         return view('admin/templates/header', $data)
-            . view('admin/admin ')
+            . view('admin/admin')
+            . view('admin/templates/footer');
+    }
+
+    public function add()
+    {
+        return view('admin/templates/header')
+            . view('admin/add')
             . view('admin/templates/footer');
     }
 
     public function store()
     {
-        $wordModel = new WordModel();
-        $data = [
-            'word'         => $this->request->getPost('word'),
-            'translation'  => $this->request->getPost('translation'),
-            'letter'       => $this->request->getPost('letter'),
-            'meaning'      => $this->request->getPost('meaning'),
-            'alias'        => $this->request->getPost('alias'),
-        ];
+        $rules =
+            [
+                'word'        => 'required',
+                'translation' => 'required',
+                'letter'      => 'required',
+                'alias'       => 'required',
+            ];
 
-        $this->$wordModel->insert($data);
+        helper(['url', 'form']);
+
+        if ($this->validate($rules)) {
+            $data['data'] =
+                [
+                    'word'         => $this->request->getPost('word'),
+                    'translation'  => $this->request->getPost('translation'),
+                    'letter'       => rus2translit($this->request->getPost('letter'),'en'),
+                    'meaning'      => $this->request->getPost('meaning'),
+                    'alias'        => $this->request->getPost('alias'),
+                ];
+            $this->wordModel->insert($data['data']);
+            return redirect()->to('/admin')->with('status','Data Added Successfully');
+        }
+        else return redirect()->to('/admin/add')->with('status','Fill Empty Forms');
     }
 
     /*

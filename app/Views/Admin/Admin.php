@@ -11,45 +11,10 @@
                 <div class="card-body">
                     <div class="row mb-2">
                         <div class="col-sm-8">
-                            <button type="button" class="btn btn-primary btn-sm rounded mb-2" data-bs-toggle="modal" data-bs-target="#addDataModal">
+                            <!--Добавление-->
+                            <a type="button" class="btn btn-primary btn-sm rounded mb-2" href="<?= base_url('admin/add'); ?>">
                                 Add data
-                            </button>
-                            <div class="modal fade" id="addDataModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Add Data</h5>
-                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <div class="mb-3 text-start">
-                                                <label class="ms-2 form-label">Word</label>
-                                                <input type="text" class="form-control" id="word" placeholder="word">
-                                            </div>
-                                            <div class="mb-3 text-start">
-                                                <label class="ms-2 form-label">Translation</label>
-                                                <input type="text" class="form-control" id="translation" placeholder="translation">
-                                            </div>
-                                            <div class="mb-3 text-start">
-                                                <label class="ms-2 form-label">Letter</label>
-                                                <input type="text" class="form-control" id="letter" placeholder="letter">
-                                            </div>
-                                            <div class="mb-3 text-start">
-                                                <label class="ms-2 form-label">Meaning</label>
-                                                <input type="text" class="form-control" id="meaning" placeholder="meaning">
-                                            </div>
-                                            <div class="mb-3 text-start">
-                                                <label class="ms-2 form-label">Alias</label>
-                                                <input type="text" class="form-control" id="alias" placeholder="alias">
-                                            </div>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                            <button type="button" class="btn btn-success">Add data</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="col-sm-4">
                             <div class="text-sm-end">
@@ -59,6 +24,12 @@
                                 </div>
                             </div>
                         </div>
+                        <?php
+                            if(session()->getFlashdata('status'))
+                            {
+                                echo "<div class=\"alert alert-success\" role=\"alert\">".session()->getFlashdata('status')."</div>";
+                            }
+                        ?>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-bordered table-centered mb-0">
@@ -87,7 +58,7 @@
 
                                                 <button type="button" class="btn btn-primary rounded mx-1" data-bs-toggle="modal" data-bs-target="#editModal">
                                                     <i class="bi bi-pencil"></i>
-                                                </button>                                                
+                                                </button>
 
                                                 <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog">
@@ -96,7 +67,7 @@
                                                                 <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
-                                                            <form action=<?php echo base_url('store');?> method="post">
+                                                            <form action=<?php echo base_url('store'); ?> method="post">
                                                                 <div class="modal-body">
                                                                     <div class="mb-3 text-start">
                                                                         <label class="ms-2 form-label">Word</label>
