@@ -50,8 +50,12 @@ $routes->get('login','Login::index');
 $routes->post('login/auth','Login::auth');
 $routes->get('admin','Admin::view',['filter' => 'auth']);
 
-$routes->get('admin/add','Admin::add');
-$routes->post('admin/store','Admin::store');
+$routes->group('admin', static function ($routes) {
+    $routes->get('add','Admin::add');
+    $routes->post('store','Admin::store');
+    $routes->get('edit/(:num)','Admin::edit/$1');
+    $routes->post('update/(:num)','Admin::update/$1');
+});
 
 
 /*

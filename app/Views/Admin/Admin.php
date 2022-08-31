@@ -25,10 +25,9 @@
                             </div>
                         </div>
                         <?php
-                            if(session()->getFlashdata('status'))
-                            {
-                                echo "<div class=\"alert alert-success\" role=\"alert\">".session()->getFlashdata('status')."</div>";
-                            }
+                        if (session()->getFlashdata('status')) {
+                            echo "<div class=\"alert alert-success\" role=\"alert\">" . session()->getFlashdata('status') . "</div>";
+                        }
                         ?>
                     </div>
                     <div class="table-responsive">
@@ -56,48 +55,9 @@
                                             <td><?= $word['alias']; ?></td>
                                             <td class="text-center">
 
-                                                <button type="button" class="btn btn-primary rounded mx-1" data-bs-toggle="modal" data-bs-target="#editModal">
+                                                <a type="button" type="button" class="btn btn-primary rounded mx-1" href="<?= base_url('admin/edit/'.$word['id']); ?>">
                                                     <i class="bi bi-pencil"></i>
-                                                </button>
-
-                                                <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Edit Data</h5>
-                                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                                            </div>
-                                                            <form action=<?php echo base_url('store'); ?> method="post">
-                                                                <div class="modal-body">
-                                                                    <div class="mb-3 text-start">
-                                                                        <label class="ms-2 form-label">Word</label>
-                                                                        <input type="text" class="form-control" id="word" name="word">
-                                                                    </div>
-                                                                    <div class="mb-3 text-start">
-                                                                        <label class="ms-2 form-label">Translation</label>
-                                                                        <input type="text" class="form-control" id="translation" name="translation">
-                                                                    </div>
-                                                                    <div class="mb-3 text-start">
-                                                                        <label class="ms-2 form-label">Letter</label>
-                                                                        <input type="text" class="form-control" id="letter" name="letter">
-                                                                    </div>
-                                                                    <div class="mb-3 text-start">
-                                                                        <label class="ms-2 form-label">Meaning</label>
-                                                                        <input type="text" class="form-control" id="meaning" name="meaning">
-                                                                    </div>
-                                                                    <div class="mb-3 text-start">
-                                                                        <label class="ms-2 form-label">Alias</label>
-                                                                        <input type="text" class="form-control" id="alias" name="alias">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                                    <button type="submit" class="btn btn-success">Save</button>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                </a>
 
                                                 <button type="button" class="btn btn-danger rounded mx-1" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                                     <i class="bi bi-trash3"></i>
@@ -111,7 +71,6 @@
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
-
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
