@@ -55,6 +55,7 @@ $routes->group('admin', static function ($routes) {
     $routes->post('store','Admin::store');
     $routes->get('edit/(:num)','Admin::edit/$1');
     $routes->post('update/(:num)','Admin::update/$1');
+    $routes->get('delete/(:num)','Admin::delete/$1');
 });
 
 

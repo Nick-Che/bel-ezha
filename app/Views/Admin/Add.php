@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-12">
             <div class="my-3 text-center">
-                <h4>ADD DATA
+                <h4>Добавление данных
                     <hr class="text-denger">
                 </h4>
 
@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="mb-3 text-start">
                                     <label class="ms-2 form-label">Meaning</label>
-                                    <input type="text" class="form-control" name="meaning" id="meaning" required placeholder="meaning">
+                                    <input type="text" class="form-control" name="meaning" id="meaning" placeholder="meaning">
                                 </div>
                                 <div class="mb-3 text-start">
                                     <label class="ms-2 form-label">Alias</label>
@@ -40,8 +40,8 @@
                                 </div>
                             </div>
                             <div class="footer">
-                                <a class="btn btn-secondary" href="<?= base_url('admin'); ?>">Cancel</a>
-                                <button type="submit" class="btn btn-primary" name="btnAddData">Add data</button>
+                                <a class="btn btn-secondary" href="<?= base_url('admin'); ?>">Отмена</a>
+                                <button type="submit" class="btn btn-primary" name="btnAddData">Добавить</button>
                             </div>
                         </form>
                     </div>

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
@@ -44,8 +45,8 @@
             <h1 class="mb-3 display-3">Руска-беларускі слоўнік харчовых адзінак</h1>
             <div class="row justify-content-center">
                 <div class="col-6">
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex" role="search" method="get">
+                        <input class="form-control me-2" type="search" name="search" id="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-outline-secondary" type="submit">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
@@ -56,4 +57,31 @@
             </div>
         </div>
         <!-- Hero -->
+
+        <script>
+            $(document).ready(function() {
+
+                $("#search").keyup(function() {
+
+                    var input = $(this).val();
+                    alert(input);
+                    if (input != "") {
+                        $ajax({
+                            url: "<?= base_url('search/fetch') ?>",
+                            method: "POST",
+                            data: {
+                                input: input
+                            },
+
+                            success: function(data) {
+                                $(".header-search-list").html(data);
+                            }
+                        });
+                    } else {
+                        $(".header-search-list").css("display", "none");
+                    }
+                });
+            });
+        </script>
+
     </header>

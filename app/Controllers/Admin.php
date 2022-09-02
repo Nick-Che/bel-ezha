@@ -57,9 +57,15 @@ class Admin extends BaseController
                 ];
 
             $this->wordModel->update($id, $data['data']);
-            return redirect()->to('/admin')->with('status','Data Upadated Successfully');
+            return redirect()->to('/admin')->with('status','Данные успешно добавлены');
         }
-        else return redirect()->to('/admin/edit/'.$id)->with('status','Fill Empty Forms');
+        else return redirect()->to('/admin/edit/'.$id)->with('status','Заполните пустые поля');
+    }
+
+    public function delete($id)
+    {
+        $this->wordModel->delete($id);
+        return redirect()->to('/admin')->with('status','Данные успешно удалены');
     }
 
     public function store()
@@ -84,9 +90,23 @@ class Admin extends BaseController
                     'alias'        => $this->request->getPost('alias'),
                 ];
             $this->wordModel->insert($data['data']);
-            return redirect()->to('/admin')->with('status','Data Added Successfully');
+            return redirect()->to('/admin')->with('status','Данные успешно изменены');
         }
-        else return redirect()->to('/admin/add')->with('status','Fill Empty Forms');
+        else return redirect()->to('/admin/add')->with('status','Заполните пустые поля');
+    }
+
+    public function ajaxSearch()
+    {
+        helper(['form', 'url']);
+ 
+        $data = [];
+ 
+        $query = $this->wordModel->like('word', $this->request->getVar('q'))
+                    ->select('id, word as text')
+                    ->limit(10)->get();
+        $data = $query->getResult();
+         
+        echo json_encode($data);
     }
 
     /*

@@ -13,7 +13,7 @@
                         <div class="col-sm-8">
                             <!--Добавление-->
                             <a type="button" class="btn btn-primary btn-sm rounded mb-2" href="<?= base_url('admin/add'); ?>">
-                                Add data
+                                Добавить
                             </a>
                         </div>
                         <div class="col-sm-4">
@@ -67,14 +67,15 @@
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                                <h5 class="modal-title" id="exampleModalLabel">Внимание</h5>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                             </div>
                                                             <div class="modal-body">
+                                                                <h5 class="text-start">Вы уверены, что хотите продолжить?</h5>
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                                                                <button type="button" class="btn btn-success">Confirm</button>
+                                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
+                                                                <a type="button" class="btn btn-success" href="<?= base_url('admin/delete/'.$word['id']); ?>">Удалить</a>
                                                             </div>
                                                         </div>
                                                     </div>
