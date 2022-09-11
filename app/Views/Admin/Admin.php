@@ -10,18 +10,27 @@
             <div class="card rounded">
                 <div class="card-body">
                     <div class="row mb-2">
-                        <div class="col-sm-8">
+                        <div class="col-sm-8 d-flex">
                             <!--Добавление-->
-                            <a type="button" class="btn btn-primary btn-sm rounded mb-2" href="<?= base_url('admin/add'); ?>">
+                            <a type="button" class="btn btn-primary btn-sm rounded" href="<?= base_url('admin/add'); ?>">
                                 Добавить
                             </a>
                         </div>
                         <div class="col-sm-4">
                             <div class="text-sm-end">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Search Records" name='q' value='' aria-describedby="button-addon2">
-                                    <button class="btn btn-primary" type="Submit" id="button-addon2">Search</button>
-                                </div>
+                                <!-- <from class="d-flex" role="search" method="get">
+                                    <input type="text" class="form-control" placeholder="Найти запись" name='search' id="search" value='' aria-describedby="button-addon2">
+
+                                    <button class="btn btn-primary" type="submit" id="button-search">Поиск</button>
+                                </from> -->
+                                <form class="d-flex" role="search" method="get">
+                                    <input class="form-control me-2" type="search" name="search" id="search" placeholder="Найти" aria-label="Search">
+                                    <button class="btn btn-primary" type="submit">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search mb-1" viewBox="0 0 16 16">
+                                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                        </svg>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                         <?php
@@ -55,7 +64,7 @@
                                             <td><?= $word['alias']; ?></td>
                                             <td class="text-center">
 
-                                                <a type="button" type="button" class="btn btn-primary rounded mx-1" href="<?= base_url('admin/edit/'.$word['id']); ?>">
+                                                <a type="button" type="button" class="btn btn-primary rounded mx-1" href="<?= base_url('admin/edit/' . $word['id']); ?>">
                                                     <i class="bi bi-pencil"></i>
                                                 </a>
 
@@ -75,7 +84,7 @@
                                                             </div>
                                                             <div class="modal-footer">
                                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Отмена</button>
-                                                                <a type="button" class="btn btn-success" href="<?= base_url('admin/delete/'.$word['id']); ?>">Удалить</a>
+                                                                <a type="button" class="btn btn-success" href="<?= base_url('admin/delete/' . $word['id']); ?>">Удалить</a>
                                                             </div>
                                                         </div>
                                                     </div>

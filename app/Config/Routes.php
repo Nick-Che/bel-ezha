@@ -41,6 +41,8 @@ $routes->get('/', 'Pages::view/home');
 $routes->get('about', 'Pages::view/about');
 $routes->get('browse', 'Pages::view/browse');
 
+$routes->get('ajax-search', 'Search::ajaxSearch');
+
 $routes->group('browse', static function ($routes) {
     $routes->get('(:segment)', 'Browse::view/$1');
     $routes->get('(:segment)/(:any)', 'Word::view/$2');

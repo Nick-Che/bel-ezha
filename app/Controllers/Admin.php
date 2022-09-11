@@ -13,7 +13,13 @@ class Admin extends BaseController
 
     public function view()
     {
-        $data['words'] = $this->wordModel->orderBy('letter', 'ASC')->findAll();
+        if ($this->request->getGet('search') != '') {
+            $search = $this->request->getGet('search');
+            $data['words'] = $this->wordModel->like('word', $search);
+        } else {
+            $data['words'] = $this->wordModel->orderBy('word', 'ASC')->findAll(); 
+        }
+
         return view('admin/templates/header', $data)
             . view('admin/admin')
             . view('admin/templates/footer');
@@ -45,27 +51,26 @@ class Admin extends BaseController
             ];
 
         helper(['url', 'form']);
-        
+
         if ($this->validate($rules)) {
             $data['data'] =
                 [
                     'word'         => $this->request->getPost('word'),
                     'translation'  => $this->request->getPost('translation'),
-                    'letter'       => rus2translit($this->request->getPost('letter'),'en'),
+                    'letter'       => rus2translit($this->request->getPost('letter'), 'en'),
                     'meaning'      => $this->request->getPost('meaning'),
                     'alias'        => $this->request->getPost('alias'),
                 ];
 
             $this->wordModel->update($id, $data['data']);
-            return redirect()->to('/admin')->with('status','Данные успешно добавлены');
-        }
-        else return redirect()->to('/admin/edit/'.$id)->with('status','Заполните пустые поля');
+            return redirect()->to('/admin')->with('status', 'Данные успешно добавлены');
+        } else return redirect()->to('/admin/edit/' . $id)->with('status', 'Заполните пустые поля');
     }
 
     public function delete($id)
     {
         $this->wordModel->delete($id);
-        return redirect()->to('/admin')->with('status','Данные успешно удалены');
+        return redirect()->to('/admin')->with('status', 'Данные успешно удалены');
     }
 
     public function store()
@@ -85,27 +90,29 @@ class Admin extends BaseController
                 [
                     'word'         => $this->request->getPost('word'),
                     'translation'  => $this->request->getPost('translation'),
-                    'letter'       => rus2translit($this->request->getPost('letter'),'en'),
+                    'letter'       => rus2translit($this->request->getPost('letter'), 'en'),
                     'meaning'      => $this->request->getPost('meaning'),
                     'alias'        => $this->request->getPost('alias'),
                 ];
             $this->wordModel->insert($data['data']);
-            return redirect()->to('/admin')->with('status','Данные успешно изменены');
-        }
-        else return redirect()->to('/admin/add')->with('status','Заполните пустые поля');
+            return redirect()->to('/admin')->with('status', 'Данные успешно изменены');
+        } else return redirect()->to('/admin/add')->with('status', 'Заполните пустые поля');
     }
 
     public function ajaxSearch()
     {
         helper(['form', 'url']);
- 
+
         $data = [];
- 
-        $query = $this->wordModel->like('word', $this->request->getVar('q'))
-                    ->select('id, word as text')
-                    ->limit(10)->get();
-        $data = $query->getResult();
-         
+
+        if ($this->request->getPost()) {
+            $words = new WordModel();
+            $words = $words->havingLike('word', $this->request->getPost('search'))->get()->getResult();
+            foreach ($words as $word) {
+                $response[] = array("value" => $word->id, "label" => $word->word);
+            }
+        }
+
         echo json_encode($data);
     }
 

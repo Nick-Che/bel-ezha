@@ -12,7 +12,7 @@ class Pages extends BaseController
             throw new \CodeIgniter\Exceptions\PageNotFoundException($page);
         }
 
-        return view('templates/header',$data)
+        return view('templates/header', $data)
             . view('pages/' . $page)
             . view('templates/footer');
     }

@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="mb-3 text-start">
                                     <label class="ms-2 form-label">Letter</label>
-                                    <input type="text" class="form-control" name="letter" id="letter" required value="<?= $word['letter']; ?>">
+                                    <input type="text" class="form-control" name="letter" id="letter" required value="<?= rus2translit($word['letter'],'ru'); ?>">
                                 </div>
                                 <div class="mb-3 text-start">
                                     <label class="ms-2 form-label">Meaning</label>
