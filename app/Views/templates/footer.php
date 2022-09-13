@@ -2,35 +2,35 @@
     <div class="row justify-content-center">
         <div class="col-7">
             <div class="mt-5 text-center">
-                <a class="btn btn-outline-secondary m-1" href="/browse/A" role="button">А</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/B" role="button">Б</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/G" role="button">Г</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/V" role="button">В</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/D" role="button">Д</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/E" role="button">Е</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/ZH" role="button">Ж</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/Z" role="button">З</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/I" role="button">И</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/J" role="button">Й</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/K" role="button">К</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/L" role="button">Л</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/M" role="button">М</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/N" role="button">Н</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/O" role="button">О</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/P" role="button">П</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/R" role="button">Р</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/S" role="button">С</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/T" role="button">Т</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/U" role="button">У</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/F" role="button">Ф</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/H" role="button">Х</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/C" role="button">Ц</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/CH" role="button">Ч</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/SH" role="button">Ш</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/SHCH" role="button">Щ</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/AA" role="button">Э</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/YU" role="button">Ю</a>
-                <a class="btn btn-outline-secondary m-1" href="/browse/YA" role="button">Я</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/а" role="button">А</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/б" role="button">Б</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/в" role="button">В</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/г" role="button">Г</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/д" role="button">Д</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/е" role="button">Е</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/ж" role="button">Ж</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/з" role="button">З</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/и" role="button">И</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/й" role="button">Й</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/к" role="button">К</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/л" role="button">Л</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/м" role="button">М</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/н" role="button">Н</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/о" role="button">О</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/п" role="button">П</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/р" role="button">Р</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/с" role="button">С</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/т" role="button">Т</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/у" role="button">У</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/ф" role="button">Ф</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/х" role="button">Х</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/ц" role="button">Ц</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/ч" role="button">Ч</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/ш" role="button">Ш</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/щ" role="button">Щ</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/э" role="button">Э</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/ю" role="button">Ю</a>
+                <a class="btn btn-outline-secondary m-1" href="/browse/я" role="button">Я</a>
             </div>
         </div>
     </div>
