@@ -12,6 +12,8 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('public/css/style.css'); ?>">
+
     <title>Руска-беларускі слоўнік харчовых адзінак</title>
 </head>
 
@@ -29,14 +31,11 @@
                 <div class="collapse navbar-collapse" id="main-nav">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item active">
-                            <a class="nav-link" aria-current="page" href="/">Home</a>
+                            <a class="nav-link" aria-current="page" href="/">Главная</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about">About</a>
-                        </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/about">О проекте</a>
+                            </li>
                     </ul>
                 </div>
             </div>
@@ -48,17 +47,8 @@
             <h1 class="mb-3 display-3">Руска-беларускі слоўнік харчовых адзінак</h1>
             <div class="row justify-content-center">
                 <div class="col-6">
-                    <div class="dropdown">
-                        <form class="d-flex" role="search" method="get">
-                            <input class="form-control me-2" type="search" name="search" id="ajax-search" placeholder="Search" aria-label="Search" data-toggle="dropdown" autocomplete="off">
-                            <!--<button class="btn btn-outline-secondary" type="submit">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                                </svg>
-                            </button>-->
-                        </form>
-                        <span id="search_result"></span>
-                    </div>
+                    <input class="form-control" type="search" name="search" id="ajax-search" placeholder="Search" aria-label="Search" autocomplete="off" style="width: 50rem; text-align: center;">
+                    <div class="list-group position-absolute" style="width: 50rem;"></div>
                 </div>
             </div>
         </div>
@@ -66,7 +56,9 @@
         <script>
             $(document).ready(function() {
                 $('#ajax-search').on("keyup", function() {
+                    var result = '';
                     var inputVal = $(this).val();
+                    $('.list-group').css('display', 'block');
                     if (inputVal) {
                         $.ajax({
                             url: '<?= base_url('ajax-search'); ?>',
@@ -77,20 +69,26 @@
                             dataType: "JSON",
                             success: function(data) {
                                 if (data != null) {
-                                    var result = '<ul class="list-group" id="search-result">';
                                     data.forEach(function(word) {
-                                        result += '<li><a class="list-group-item list-group-item-action" href="/browse/' + word.letter + '/' + word.alias + '">' + word.word + '</a></li>';
+                                        result += '<a class="list-group-item list-group-item-action" href="/browse/' + word.letter + '/' + word.alias + '">' + word.word + '</a>';
                                     });
-                                    result += '</ul>';
-                                    $('#search_result').html(result);
+                                    $('.list-group').html(result);
                                 }
                             }
                         });
                     } else {
-                        $('#search_result').html('');
+                        $('.list-group').empty();
                     }
                 });
             });
+            $(document).ready(
+                function keyPress(e) {
+                if (e.key === "Escape") {
+                    $('.list-group').empty();
+                }
+            }
+            )
+            
         </script>
 
     </header>

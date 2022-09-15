@@ -13,7 +13,9 @@ class Admin extends BaseController
 
     public function view()
     {
-        if ($this->request->getGet('search') != '') {
+        $this->wordModel = new WordModel();
+
+        if ($this->request->getGet('search')) {
             $search = $this->request->getGet('search');
             $data['words'] = $this->wordModel->like('word', $search);
         } else {
@@ -57,8 +59,7 @@ class Admin extends BaseController
                 [
                     'word'         => $this->request->getPost('word'),
                     'translation'  => $this->request->getPost('translation'),
-                    'letter'       => rus2translit($this->request->getPost('letter'), 'en'),
-                    'meaning'      => $this->request->getPost('meaning'),
+                    'letter'       => rus2translit($this->request->getPost('letter'), 'en'),                    
                     'alias'        => $this->request->getPost('alias'),
                 ];
 
@@ -90,30 +91,12 @@ class Admin extends BaseController
                 [
                     'word'         => $this->request->getPost('word'),
                     'translation'  => $this->request->getPost('translation'),
-                    'letter'       => rus2translit($this->request->getPost('letter'), 'en'),
-                    'meaning'      => $this->request->getPost('meaning'),
+                    'letter'       => rus2translit($this->request->getPost('letter'), 'en'),                    
                     'alias'        => $this->request->getPost('alias'),
                 ];
             $this->wordModel->insert($data['data']);
             return redirect()->to('/admin')->with('status', 'Данные успешно изменены');
         } else return redirect()->to('/admin/add')->with('status', 'Заполните пустые поля');
-    }
-
-    public function ajaxSearch()
-    {
-        helper(['form', 'url']);
-
-        $data = [];
-
-        if ($this->request->getPost()) {
-            $words = new WordModel();
-            $words = $words->havingLike('word', $this->request->getPost('search'))->get()->getResult();
-            foreach ($words as $word) {
-                $response[] = array("value" => $word->id, "label" => $word->word);
-            }
-        }
-
-        echo json_encode($data);
     }
 
     /*

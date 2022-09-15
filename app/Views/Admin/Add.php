@@ -29,11 +29,7 @@
                                 <div class="mb-3 text-start">
                                     <label class="ms-2 form-label">Letter</label>
                                     <input type="text" class="form-control" name="letter" id="letter" required placeholder="letter">
-                                </div>
-                                <div class="mb-3 text-start">
-                                    <label class="ms-2 form-label">Meaning</label>
-                                    <input type="text" class="form-control" name="meaning" id="meaning" placeholder="meaning">
-                                </div>
+                                </div>                                
                                 <div class="mb-3 text-start">
                                     <label class="ms-2 form-label">Alias</label>
                                     <input type="text" class="form-control" name="alias" id="alias" required placeholder="alias">

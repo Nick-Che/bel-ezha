@@ -17,12 +17,7 @@
                             </a>
                         </div>
                         <div class="col-sm-4">
-                            <div class="text-sm-end">
-                                <!-- <from class="d-flex" role="search" method="get">
-                                    <input type="text" class="form-control" placeholder="Найти запись" name='search' id="search" value='' aria-describedby="button-addon2">
-
-                                    <button class="btn btn-primary" type="submit" id="button-search">Поиск</button>
-                                </from> -->
+                            <div class="text-sm-end">                                
                                 <form class="d-flex" role="search" method="get">
                                     <input class="form-control me-2" type="search" name="search" id="search" placeholder="Найти" aria-label="Search">
                                     <button class="btn btn-primary" type="submit">
@@ -44,11 +39,10 @@
                             <thead>
                                 <tr>
                                     <th style="min-width: 10px">#</th>
-                                    <th class="col-1">Word</th>
-                                    <th class="col-2">Translation</th>
-                                    <th class="col-2">Letter</th>
-                                    <th class="col-3">Meaning</th>
-                                    <th class="col-2">Alias</th>
+                                    <th class="col-2">Word</th>
+                                    <th class="col-3">Translation</th>
+                                    <th class="col-2">Letter</th>                                    
+                                    <th class="col-3">Alias</th>
                                     <th class="col-2 text-center" colspan="2">Action</th>
                                 </tr>
                             </thead>
@@ -59,8 +53,7 @@
                                             <td><?= $word['id']; ?></td>
                                             <td><?= $word['word']; ?></td>
                                             <td><?= $word['translation']; ?></td>
-                                            <td><?= rus2translit($word['letter'], 'ru'); ?></td>
-                                            <td><?= $word['meaning']; ?></td>
+                                            <td><?= $word['letter']; ?></td>
                                             <td><?= $word['alias']; ?></td>
                                             <td class="text-center">
 

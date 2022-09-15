@@ -13,8 +13,7 @@ class WordModel extends Model
     protected $allowedFields = [
         'word',
         'translation',
-        'letter',
-        'meaning',
+        'letter',        
         'alias'
     ];
 }

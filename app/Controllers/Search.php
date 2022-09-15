@@ -17,15 +17,11 @@ class Search extends BaseController
 
         $term = $this->request->getGet('term');
 
-        if($term != '')
-        {
-            $data = $this->wordModel->like('word', $term)->orderBy('word', 'ASC')->limit(10)->get()->getResult();        
+        if ($term != '') {
+            $data = $this->wordModel->like('word', $term)->orderBy('word', 'ASC')->limit(10)->get()->getResult();
             echo json_encode($data);
-        }
-        else
-        {
+        } else {
             echo json_encode(null);
         }
-        
     }
 }

@@ -1,15 +1,13 @@
 <section>
-    <ul>
-        <?php foreach ($data as $item) : ?>
-            <li>
-                <a href="/browse/<?= $item->letter; ?>/<?= $item->alias; ?>">
-                    <div class="row m-1">
-                        <div class="col-2 mx-5">
+    <div class="row pt-5">
+        <div class="col d-flex justify-content-center">
+                <div class="list-group w-50 ">
+                    <?php foreach ($data as $item) : ?>
+                        <a href="/browse/<?= $item->letter; ?>/<?= $item->alias; ?>" class="list-group-item list-group-item-action">
                             <?= $item->word; ?>
-                        </div>
-                    </div>
-                </a>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+                        </a>
+                    <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
 </section>

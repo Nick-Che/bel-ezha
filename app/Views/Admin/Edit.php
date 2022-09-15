@@ -29,11 +29,7 @@
                                 <div class="mb-3 text-start">
                                     <label class="ms-2 form-label">Letter</label>
                                     <input type="text" class="form-control" name="letter" id="letter" required value="<?= rus2translit($word['letter'],'ru'); ?>">
-                                </div>
-                                <div class="mb-3 text-start">
-                                    <label class="ms-2 form-label">Meaning</label>
-                                    <input type="text" class="form-control" name="meaning" id="meaning" value="<?= $word['meaning']; ?>">
-                                </div>
+                                </div>                                
                                 <div class="mb-3 text-start">
                                     <label class="ms-2 form-label">Alias</label>
                                     <input type="text" class="form-control" name="alias" id="alias" required value="<?= $word['alias']; ?>">

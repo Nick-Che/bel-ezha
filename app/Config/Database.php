@@ -32,10 +32,10 @@ class Database extends Config
      */
     public $default = [
         'DSN'      => '',
-        'hostname' => 'localhost',
-        'username' => 'root',
-        'password' => 'root',
-        'database' => 'bel_ezha',
+        'hostname' => '',
+        'username' => '',
+        'password' => '',
+        'database' => 'belezhao_information',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
@@ -61,7 +61,7 @@ class Database extends Config
         'hostname'    => 'localhost',
         'username'    => 'root',
         'password'    => 'root',
-        'database'    => 'bel_ezha',
+        'database'    => 'belezhao_information',
         'DBDriver'    => 'MySQLi',
         'DBPrefix'    => '',  // Needed to ensure we're working correctly with prefixes live. DO NOT REMOVE FOR CI DEVS
         'pConnect'    => false,
